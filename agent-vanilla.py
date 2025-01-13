@@ -81,7 +81,7 @@ if __name__ == "__main__":
         # append claude response to the conversation - role = assistant (anthropic compatible format)
         conversation += [{'role': 'assistant', 'content': [{"type":"text","text":claude_reply}]}] 
 
-        # NEW ReAct code block to check for actions
+        # ReAct code block to check for actions
         action_re = re.compile('^Action: (\w+): (.*)$')
         # Checks if there is an action to run using the above regular expression: looks for the pattern `Action:` followed by inputs
         actions = [action_re.match(a) for a in claude_reply.split('\n') if action_re.match(a)]
